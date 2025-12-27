@@ -5,7 +5,7 @@ description: Install and configure Tracehound in under 5 minutes.
 
 # Getting Started with Tracehound
 
-> **Tracehound**: Deterministic runtime security buffer for FinTech applications
+> **Tracehound**: Deterministic runtime security buffer for modern applications
 
 ## What is Tracehound?
 
