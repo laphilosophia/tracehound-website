@@ -11,7 +11,7 @@ description: Development roadmap and status for Tracehound.
 
 ---
 
-## Current Status: v0.8.0 → v1.0.0 Stable
+## Current Status: v1.0.0 Stable
 
 ---
 
@@ -73,28 +73,12 @@ description: Development roadmap and status for Tracehound.
 - [x] Fail-Safe Panic
 - [x] Scenario Tests
 
----
+### v1.0.0 - Stable Release
 
-## 🔲 v1.0.0 Stable (In Progress)
-
-### Remaining Items
-
-| Item               | Package           | Priority | Status |
-| ------------------ | ----------------- | -------- | ------ |
-| CLI Interface      | `@tracehound/cli` | HIGH     | 🔲     |
-| TUI Dashboard      | `@tracehound/cli` | MEDIUM   | 🔲     |
-| Comprehensive Docs | `docs/`           | HIGH     | 🔲     |
-
-### Success Criteria
-
-| Criterion           | Target              | Status |
-| ------------------- | ------------------- | ------ |
-| intercept() latency | < 1ms p99           | ✅     |
-| Memory stability    | 100k threats        | ✅     |
-| Error codes         | Granular            | ✅     |
-| Scenario tests      | Full lifecycle      | ✅     |
-| CLI basic           | `tracehound status` | 🔲     |
-| Documentation       | Getting started     | 🔲     |
+- [x] CLI Interface (`@tracehound/cli`)
+- [x] TUI Dashboard (Pure ANSI)
+- [x] Comprehensive Documentation
+- [x] Private Release (Enterprise/Premium)
 
 ---
 
@@ -111,6 +95,11 @@ description: Development roadmap and status for Tracehound.
 | Async Codec                | `@tracehound/codec-async` - Streaming gzip           | P1       |
 | Cold Storage Adapters      | `@tracehound/cold-s3`, `cold-r2`, `cold-gcs`         | P1       |
 
+### Success Criteria
+
+- [ ] Notification API introduces zero backpressure
+- [ ] Policies remain deploy-time, not runtime-interactive
+
 ---
 
 ## Phase 5 — Forensics & Compliance (v1.2.0)
@@ -125,6 +114,13 @@ description: Development roadmap and status for Tracehound.
 | Evidence Cost Accounting      | Memory + cold storage cost visibility          | P1       |
 | Threat Coalescing             | Time-window aggregation for repetitive threats | P1       |
 | DPS (Payload Summary)         | Deterministic summary for explainability       | P2       |
+
+### Explicit Non-Goals
+
+- Payload replay or re-execution
+- Interactive dashboards
+- Content inspection or mutation
+- ML-based scoring
 
 ---
 
@@ -146,6 +142,12 @@ description: Development roadmap and status for Tracehound.
 - Argos WorkingMemory is physically separate from Quarantine
 - Sampling-only, no continuous observation
 - No kernel, syscall, or memory dump access
+
+### Success Criteria
+
+- [ ] <1% CPU overhead under load
+- [ ] Zero coupling with request lifecycle
+- [ ] Core determinism guarantees preserved
 
 ---
 
@@ -181,3 +183,17 @@ These are **permanently excluded** to preserve product identity:
 - Rule engines or detection logic
 - ML-based classification
 - WAF / RASP replacement features
+
+---
+
+## Roadmap Principles (Locked)
+
+- Tracehound remains **decision-free**
+- Detection is always **external**
+- Payloads are **never exposed**
+- Explainability > interactivity
+- Forensics > visualization
+
+---
+
+**Last Updated:** 2024-12-27
