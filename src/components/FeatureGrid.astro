@@ -41,7 +41,7 @@ const features = [
 ]
 ---
 
-<section class="py-24 border-b border-surface-highlight">
+<section class="py-24 border-b border-dashed border-surface-highlight">
   <div class="container-custom">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Why Tracehound?</h2>
@@ -54,11 +54,11 @@ const features = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         features.map((feature, index) => (
-          <div class="p-8 border border-surface-highlight bg-surface/30 hover:bg-surface/50 hover:border-primary/30 transition-all group relative">
+          <div class="p-8 border border-dashed border-surface-highlight bg-surface/30 hover:bg-surface/50 hover:border-primary/30 transition-all group relative">
             <div class="absolute top-4 right-4 text-xs font-mono text-surface-highlight group-hover:text-primary/50 transition-colors">
               0{index + 1}
             </div>
-            <div class="h-10 w-10 bg-primary/10 flex items-center justify-center text-primary mb-6 rounded-sm border border-primary/20 group-hover:scale-105 transition-transform duration-300">
+            <div class="h-10 w-10 bg-primary/10 flex items-center justify-center text-primary mb-6 rounded-sm  border-primary/20 group-hover:scale-105 transition-transform duration-300">
               <feature.icon className="h-5 w-5" />
             </div>
             <h3 class="text-lg font-bold mb-3 text-white font-mono uppercase tracking-wide">

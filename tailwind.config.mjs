@@ -6,9 +6,9 @@ export default {
       colors: {
         background: '#080808', // Darker, sharper black
         surface: '#111111', // Very subtle lift
-        primary: '#F2C94C', // Technical Amber (replacing neon green)
+        primary: '#8dde23', // Technical Amber (replacing neon green)
         secondary: '#3b82f6', // Sharp Professional Blue
-        accent: '#F2994A', // Orange accent
+        accent: '#de5223', // Orange accent
         'surface-highlight': '#222222', // High contrast border color
         text: '#eaeaea',
         'text-muted': '#888888',

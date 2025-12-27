@@ -56,7 +56,7 @@ const tiers = [
   {
     name: 'Tracehound Enterprise',
     subtitle: 'Compliance & Forensics Substrate',
-    price: 'Starting at $1,500',
+    price: '~$1,499',
     period: '/ month',
     tagline: 'This is not observability. This is record-keeping under pressure.',
     guaranteed: [
@@ -87,7 +87,7 @@ const tiers = [
       </h2>
       <p class="text-text-muted text-lg">
         You are not paying for features. You are paying for us to take responsibility for
-        what happens when your LLM fails.
+        what happens when your runtime degrades.
       </p>
     </div>
 
@@ -95,7 +95,7 @@ const tiers = [
       {
         tiers.map((tier) => (
           <div
-            class={`relative flex flex-col bg-surface/50 border ${tier.borderColor} ${tier.highlight ? 'border-primary ring-1 ring-primary/20' : ''} p-8 hover:bg-surface/80 transition-colors rounded-sm`}
+            class={`relative flex flex-col bg-surface/50 border ${tier.borderColor} ${tier.highlight ? 'border-primary ring-1 ring-primary/20' : ''} ${tier.highlight ? 'border-dashed' : 'border-dotted'} p-8 hover:bg-surface/80 transition-colors rounded-sm`}
           >
             {tier.highlight && (
                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-background px-3 py-0.5 text-xs font-bold uppercase tracking-wider rounded-sm">

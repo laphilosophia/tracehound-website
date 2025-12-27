@@ -2,27 +2,29 @@
 import { ArrowRight, Terminal } from 'lucide-react'
 ---
 
-<section class="relative overflow-hidden pt-32 pb-24 border-b border-surface-highlight">
+<section
+  class="relative overflow-hidden pt-32 pb-24 border-b border-dashed border-surface-highlight"
+>
   <!-- Background effects -->
   <div class="absolute inset-0 z-0 bg-grid-pattern opacity-[0.4] mask-image-gradient"></div>
 
   <!-- Content -->
   <div class="container-custom relative z-10">
-    <div class="max-w-4xl">
+    <div class="w-full">
       <div
-        class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-primary/30 bg-primary/5 text-primary text-xs font-mono tracking-wider uppercase"
+        class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-dashed border-primary/30 bg-primary/5 text-primary text-xs font-mono tracking-wider uppercase"
       >
         <span class="w-2 h-2 bg-primary animate-pulse"></span>
         System Operational
       </div>
 
       <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
-        The deterministic <br />
-        <span class="text-primary">security buffer</span> for AI.
+        The deterministic<br />
+        <span class="text-primary">security buffer</span><br /> for modern applications.
       </h1>
 
       <p class="text-xl md:text-2xl text-text-muted mb-12 leading-relaxed max-w-2xl font-light">
-        Tracehound isolates your application from LLM failures. It provides a <span
+        Tracehound isolates your application from runtime anomalies. It provides a <span
           class="text-white font-medium">frozen, crash-proof runtime</span
         > that enforces security policies with zero variance.
       </p>
@@ -46,10 +48,12 @@ import { ArrowRight, Terminal } from 'lucide-react'
         </a>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-surface-highlight pt-8">
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-dashed border-surface-highlight pt-8"
+      >
         <div>
-          <div class="text-2xl font-bold font-mono text-white mb-1">0ms</div>
-          <div class="text-sm text-text-muted font-mono uppercase tracking-wider">GC Pause</div>
+          <div class="text-2xl font-bold font-mono text-white mb-1">Zero-Allocation</div>
+          <div class="text-sm text-text-muted font-mono uppercase tracking-wider">Hot Path</div>
         </div>
         <div>
           <div class="text-2xl font-bold font-mono text-white mb-1">100%</div>

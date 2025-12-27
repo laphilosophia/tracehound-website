@@ -42,13 +42,13 @@ export default function InteractiveArchitecture() {
             <div className="flex gap-4">
               <button
                 onClick={() => setActiveFlow('safe')}
-                className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${!isThreat ? 'bg-primary/20 border-primary text-primary' : 'border-surface-highlight text-text-muted hover:text-white'}`}
+                className={`px-4 py-2 rounded-sm border text-sm font-medium transition-colors ${!isThreat ? 'bg-primary/20 border-primary text-primary' : 'border-surface-highlight text-text-muted hover:text-white'}`}
               >
                 Safe Request
               </button>
               <button
                 onClick={() => setActiveFlow('threat')}
-                className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${isThreat ? 'bg-accent/20 border-accent text-accent' : 'border-surface-highlight text-text-muted hover:text-white'}`}
+                className={`px-4 py-2 rounded-sm border text-sm font-medium transition-colors ${isThreat ? 'bg-accent/20 border-accent text-accent' : 'border-surface-highlight text-text-muted hover:text-white'}`}
               >
                 Threat Detected
               </button>
@@ -56,7 +56,7 @@ export default function InteractiveArchitecture() {
           </div>
 
           {/* Animation Side */}
-          <div className="flex-1 w-full max-w-2xl bg-surface/50 rounded-2xl border border-surface-highlight p-8 relative min-h-[400px] flex items-center justify-center">
+          <div className="flex-1 w-full max-w-2xl bg-surface/50 rounded-sm border border-dashed border-surface-highlight p-8 relative min-h-[320px] flex items-start justify-center">
 
             {/* Flow Diagram */}
             <div className="relative w-full flex items-center justify-between z-10">
@@ -72,10 +72,10 @@ export default function InteractiveArchitecture() {
               {/* Animated Dot */}
               <motion.div
                 key={activeFlow}
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 280, opacity: [0, 1, 1, 0] }}
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 300, opacity: [0, 1, 1, 0] }}
                 transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatDelay: 1 }}
-                className={`absolute left-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full shadow-[0_0_10px_currentColor] z-20 ${isThreat ? 'bg-accent text-accent' : 'bg-primary text-primary'}`}
+                className={`absolute left-[10%] top-10 -translate-y-1/2 w-4 h-4 rounded-full shadow-[0_0_10px_currentColor] z-20 ${isThreat ? 'bg-accent text-accent' : 'bg-primary text-primary'}`}
               />
 
               {/* Tracehound Agent */}
@@ -89,10 +89,10 @@ export default function InteractiveArchitecture() {
                 {/* Quarantine Path (Down) */}
                 <motion.div
                   animate={{ opacity: isThreat ? 1 : 0.1, scale: isThreat ? 1 : 0.9 }}
-                  className="absolute top-24 left-1/2 -translate-x-1/2 pt-8 flex flex-col items-center gap-2"
+                  className="absolute top-24 left-3.5 -translate-x-1/2 pt-8 flex flex-col items-center gap-2"
                 >
                   <div className="h-8 w-0.5 bg-accent/50 dash-line"></div>
-                  <div className="w-16 h-16 rounded-lg border border-accent/50 bg-accent/10 flex items-center justify-center text-accent">
+                  <div className="w-16 h-16 rounded-sm border border-accent/50 bg-accent/10 flex items-center justify-center text-accent">
                     <Database className="w-8 h-8" />
                   </div>
                   <span className="text-xs text-accent font-mono mt-1">Quarantine</span>
@@ -103,7 +103,7 @@ export default function InteractiveArchitecture() {
               <div className="flex flex-col items-center gap-2 relative">
                 <motion.div
                   animate={{ opacity: !isThreat ? 1 : 0.3 }}
-                  className="w-16 h-16 rounded-lg border-2 border-surface-highlight bg-surface flex items-center justify-center text-white"
+                  className="w-16 h-16 rounded-sm border-2 border-surface-highlight bg-surface flex items-center justify-center text-white"
                 >
                   <Server className="w-8 h-8" />
                 </motion.div>
@@ -127,24 +127,23 @@ export default function InteractiveArchitecture() {
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: [1, 1.2, 1], opacity: [0, 1, 0] }}
                     transition={{ duration: 1, repeat: Infinity, repeatDelay: 2, delay: 0.5 }}
-                    className="absolute top-8 -left-12 text-accent flex items-center gap-1 whitespace-nowrap"
+                    className="absolute -top-8 -left-2 text-accent flex items-center gap-1 whitespace-nowrap"
                   >
                     <ShieldAlert className="w-5 h-5" />
                     <span className="text-xs font-bold">BLOCKED</span>
                   </motion.div>
                 )}
               </div>
-
             </div>
 
             {/* Background connection line */}
-            <div className="absolute top-1/2 left-[10%] right-[10%] h-0.5 bg-surface-highlight -z-0"></div>
+            <div className="absolute top-[25%] left-[16%] right-[18%] h-0.5 bg-surface-highlight -z-0"></div>
 
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx="true">{`
         .dash-line {
             background-image: linear-gradient(to bottom, currentColor 50%, transparent 50%);
             background-size: 1px 10px;
