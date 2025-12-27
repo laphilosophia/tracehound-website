@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content'
+import { ArrowRight } from 'lucide-react'
+import Footer from '../../components/Footer.astro'
+import Navbar from '../../components/Navbar.astro'
+import Layout from '../../layouts/Layout.astro'
+import { cn } from '../../utils'
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+)
+---
+
+<Layout
+  title="Blog | Tracehound"
+  description="Latest updates, thoughts, and insights from the Tracehound team."
+>
+  <Navbar />
+
+  <main class="flex-1 py-32">
+    <div class="container-custom max-w-3xl">
+      <div class="mb-24">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Blog</h1>
+        <p class="text-xl text-text-muted">
+          Updates, engineering deep dives, and security insights.
+        </p>
+      </div>
+
+      <div class="space-y-0">
+        {
+          posts.map((post, index) => (
+            <article
+              class={cn(
+                'group relative pl-8 pt-16 pb-4 border-l border-dashed border-surface-highlight transition-colors',
+                index === 0 ? 'pt-4' : ''
+              )}>
+              <div
+                class={cn(
+                  'absolute -left-[5px] w-2.5 h-2.5 rounded-sm bg-surface ring-2 ring-background border border-surface-highlight group-hover:border-primary group-hover:bg-primary transition-all',
+                  index === 0 ? 'top-4' : 'top-16'
+                )}
+              />
+
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-2 text-xs text-text-muted font-mono uppercase tracking-wider">
+                  <time datetime={post.data.publishDate.toISOString()}>
+                    {post.data.publishDate.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  <span>//</span>
+                  <span>{post.data.author}</span>
+                </div>
+
+                <h2 class="text-2xl font-bold group-hover:text-primary transition-colors">
+                  <a href={`/blog/${post.slug}`} class="block">
+                    {post.data.title}
+                  </a>
+                </h2>
+
+                <p class="text-text-muted leading-relaxed">{post.data.description}</p>
+
+                <div class="flex items-center justify-between mt-2">
+                  <div class="flex gap-2">
+                    {post.data.tags?.map((tag) => (
+                      <span class="text-xs font-mono text-text-muted bg-surface/50 border border-dashed border-surface-highlight px-2 py-1 rounded-sm">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="text-sm font-medium text-text-muted group-hover:text-white flex items-center gap-1 transition-colors">
+                    Read more <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

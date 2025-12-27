@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro'
 import Navbar from '../components/Navbar.astro'
 import '../styles/global.css'
 
@@ -62,24 +63,6 @@ const statusInfo = statusConfig[status]
     <main class="flex-1">
       <slot />
     </main>
-    <footer class="py-8 border-t border-surface-highlight">
-      <div class="container-custom">
-        <div
-          class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted"
-        >
-          <div>&copy; {new Date().getFullYear()} Tracehound. All rights reserved.</div>
-          <div class="flex items-center gap-6">
-            <a href="/" class="hover:text-white transition-colors">Home</a>
-            <a href="/docs/getting-started" class="hover:text-white transition-colors">Docs</a>
-            <a href="/#pricing" class="hover:text-white transition-colors">Pricing</a>
-            <a
-              href="https://github.com/laphilosophia/tracehound"
-              target="_blank"
-              class="hover:text-white transition-colors">GitHub</a
-            >
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>

@@ -1,5 +1,6 @@
 ---
 import { Info, X, Zap } from 'lucide-react'
+import Footer from '../components/Footer.astro'
 import Navbar from '../components/Navbar.astro'
 import PricingComponent from '../components/Pricing.astro'
 import Layout from '../layouts/Layout.astro'
@@ -376,9 +377,5 @@ import Layout from '../layouts/Layout.astro'
     </div>
   </section>
 
-  <footer class="py-6 border-t border-surface-highlight text-center text-text-muted text-sm">
-    <div class="container-custom">
-      &copy; {new Date().getFullYear()} Tracehound. All rights reserved.
-    </div>
-  </footer>
+  <Footer />
 </Layout>

@@ -1,0 +1,71 @@
+---
+import Footer from '../components/Footer.astro'
+import InteractiveArchitecture from '../components/InteractiveArchitecture'
+import Navbar from '../components/Navbar.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="How Tracehound Works | Architecture"
+  description="Deep dive into Tracehound's deterministic architecture."
+>
+  <Navbar />
+
+  <main class="flex-1">
+    <section class="pt-32 pb-16">
+      <div class="container-custom text-center">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">Deterministic by Design</h1>
+        <p class="text-xl text-text-muted max-w-3xl mx-auto leading-relaxed">
+          Tracehound isn't just a firewall. It's a deterministic isolation layer that wraps your
+          application runtime, ensuring strictly defined behavior even under attack.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 bg-surface/30 border-y border-surface-highlight">
+      <div class="container-custom">
+        <!-- Reusing the interactive architecture component for consistency -->
+        <InteractiveArchitecture client:visible />
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div class="container-custom max-w-4xl space-y-24">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">The Isolation Layer</h2>
+          <p class="text-text-muted leading-relaxed mb-4">
+            Tracehound sits between the network and your application logic. Unlike WAFs that inspect
+            packets, Tracehound buffers the entire request lifecycle. It enforces strict invariants
+            on memory usage, processing time, and payload structure <em>before</em> your business logic
+            ever sees a byte.
+          </p>
+          <p class="text-text-muted leading-relaxed">
+            This means that a "Zip Bomb" or a massive JSON payload isn't just "blocked" — it never
+            even allocates memory in your main heap.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Zero-Allocation Hot Path</h2>
+          <p class="text-text-muted leading-relaxed mb-4">
+            Our core pipeline is designed to be allocation-free during the happy path. We use
+            pre-allocated buffers and object pooling to handle requests. This eliminates Garbage
+            Collection pauses during traffic spikes, ensuring predictable latency.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Behavioral Observation (Argos)</h2>
+          <p class="text-text-muted leading-relaxed mb-4">
+            While Tracehound enforces strict limits, Argos watches for what happens <em>inside</em> the
+            boundary. It monitors the Node.js event loop, garbage collection statistics, and asynchronous
+            context shifts to detect anomalies that don't violate hard limits but indicate a problem (e.g.,
+            a ReDoS attack slowing down the event loop).
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

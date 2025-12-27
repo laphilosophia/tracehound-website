@@ -1,0 +1,47 @@
+---
+import Footer from '../components/Footer.astro'
+import Navbar from '../components/Navbar.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Changelog | Tracehound" description="Product updates and changelog.">
+  <Navbar />
+
+  <main class="flex-1 py-24">
+    <div class="container-custom">
+      <h1 class="text-4xl font-bold mb-12">Changelog</h1>
+
+      <div class="relative border-l border-surface-highlight ml-4 space-y-16">
+        <!-- Example Entry -->
+        <div class="pl-8 relative">
+          <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-primary rounded-full"></div>
+          <div class="text-sm text-text-muted mb-2 font-mono">v0.1.0 • December 28, 2025</div>
+          <h2 class="text-2xl font-bold text-white mb-4">Initial Release</h2>
+          <div class="prose prose-invert max-w-none text-text-muted">
+            <p>
+              We are thrilled to announce the initial release of Tracehound, the deterministic
+              security buffer for modern applications.
+            </p>
+            <ul>
+              <li><strong>Tracehound Core:</strong> Runtime isolation and security primitives.</li>
+              <li><strong>Argos (Preview):</strong> Behavioral anomaly detection.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pl-8 relative">
+          <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-surface-highlight rounded-full">
+          </div>
+          <div class="text-sm text-text-muted mb-2 font-mono">Coming Soon</div>
+          <h2 class="text-xl font-bold text-text-muted mb-2">Upcoming Features</h2>
+          <p class="text-text-muted">
+            Check our <a href="/docs/roadmap" class="text-primary hover:underline">Roadmap</a> for what's
+            next.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
